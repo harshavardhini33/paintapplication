@@ -1,2 +1,61 @@
-* {
-}
+*{
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ 
+ body{
+     background-image: url("/static/img/bgimg5.png");
+     background-size: cover;
+ }
+ 
+ h1{
+     color: rgb(90, 12, 51);
+     text-align: center;
+     padding-top: 15px;
+ }
+ 
+ .container{
+     width: 1080px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+ 
+ canvas{
+     background-color: rgb(238, 229, 216);
+     box-shadow: inset 0 0 5px #c1b2c5;
+     backdrop-filter: blur(15px);
+     border-radius: 10px;
+     border: 1px solid #ffffff;
+ }
+ 
+ .newshape{
+     background-color: #e7ccb6;
+     border: 2px solid rgb(189, 163, 142);
+     border-radius: 25px;
+     color: rgb(90, 37, 12);
+     padding: 15px 32px;
+     text-align: center;
+     display: inline-block;
+     font-size: 20px;
+     margin: 4px 2px;
+     cursor: pointer;
+ }
+ 
+ .footer{
+     text-align: center;
+     color: rgb(42, 12, 90);
+     text-align: center;
+     font-size: x-large;
+ }
+ 
+ #cypher{
+     border: 2px solid #ffffff;
+     border-radius: 30px;
+     padding: 25px 25px;
+     text-align: center;
+     display: inline-block;
+     font-size: 16px;
+     margin: 4px 2px;
+     cursor: pointer;
+ }
+    
