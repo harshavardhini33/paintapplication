@@ -38,178 +38,196 @@ Publish the website in the given URL.
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paint Application</title>
-    <link rel="icon" href="./img/logo.png" type="image/x-icon" />
-    <style>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/myscript.js">
+    </script>
 
-        #content{
-            padding-left: 800px;
-           
-        }
-        #myCanvas{
-          background-color: rgb(239, 241, 63);
-          box-shadow: inset 0 0 7px #422057ff; 
-          border-radius: 40px;
-          border: 10px solid #422057ff;
-        }
-        #buttonstyle{
-          background-color:rgb(160, 72, 214);
-          border: 5px solid #ecfc13;
-          border-radius: 20px;
-          color: black;
-          padding: 20px 40px;
-          text-align: center;
-          display: inline-block;
-          font-size: 28px;
-          margin: 4px 2px;
-          cursor: pointer;
-        }
-        #buttonstyle:hover{
-            background-color:#f1b1fd36;
-            transition: 0.5s;
-        }
-        #bgimg{
-            background-image:url("./back.jpeg");
-            background-size: 500mm;
-        }
-        #shooky{
-            border: 2px solid #ffffff;
-            border-radius: 25px;
-            padding: 25px 25px;
-            text-align: center;
-            display: inline-block;
-            font-size: 28px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-        #shooky:hover{
-            opacity: 20%;
-            transition: 0.21s;
-        }
-        </style>
-  </head>
-  <body id="bgimg">
-    <div id="content">
-      <canvas id="myCanvas" width="600" height="800" onclick="showCoords(event)"></canvas></div>
-      <center>
-      <button onclick="shape=1" id="buttonstyle" >Solid Circle</button>
-      <button onclick="shape=2" id="buttonstyle">circle</button>
-      <button onclick="shape=3" id="buttonstyle">Solid Square</button>
-      <button onclick="shape=4" id="buttonstyle">Square</button>
-      <button onclick="shape=5" id="buttonstyle">Solid Triangle</button>
-      <button onclick="shape=6" id="buttonstyle">Triangle</button>
-      <br>
-      <button onclick="size()" id="buttonstyle" >Change size</button></center>
-      <center>
-      <button onclick="change_color(this)" id="shooky" style="background: white;"></button>
-      <button onclick="change_color(this)" id="shooky" style="background: rgb(231, 5, 5);"></button>
-      <button onclick="change_color(this)" id="shooky" style="background: rgb(255, 115, 1);"></button>
-      <button onclick="change_color(this)" id="shooky" style="background: rgb(252, 255, 60);"></button>
-      <button onclick="change_color(this)" id="shooky" style="background: rgb(94, 255, 45);"></button>
-      <button onclick="change_color(this)" id="shooky" style="background: rgb(7, 184, 1);"></button>
-      <button onclick="change_color(this)" id="shooky" style="background: rgb(49, 231, 255);"></button>
-      <button onclick="change_color(this)" id="shooky" style="background: rgb(46, 112, 255);"></button>
-      <button onclick="change_color(this)" id="shooky" style="background: rgb(233, 42, 192);"></button>
-      <button onclick="change_color(this)" id="shooky" style="background: rgb(128, 8, 207);"></button>
-      <button onclick="change_color(this)" id="shooky" style="background: rgb(97, 4, 4);"></button>
-      <button onclick="change_color(this)" id="shooky" style="background: rgb(0, 0, 0);"></button>
-      </center>
-
-      <script>
-
-
-        const canvas = document.getElementById("myCanvas");
-        const ctx = canvas.getContext("2d");
-        ctx.fillStyle = "#FF0000";
-        canvas.height = canvas.width;
-        ctx.transform(1, 0, 0, -1, 0, canvas.height);
-        let xMax = canvas.height;
-        let yMax = canvas.width;
-        let csize= 20;
-        let sqsize= 50;
-        let tsize=50;
-        let tata="black";
-        function size(){   
-          if (shape==1 ||shape==2){
-            let c= prompt("Please enter size of circle", "ex:100,50");
-            csize=c;
-          } 
-          if (shape==3 ||shape==4){
-            let s = prompt("Please enter size of square", "ex:100,20");
-            sqsize=s;
-          }
-          if (shape==5 || shape==6){
-            let t= prompt("Please enter size of triangle","ex:50,84");
-            tsize=t;
-          }
-        }
-        function change_color(element){
-          tata=element.style.background;
-        }
-        function showCoords(event)
-        {
-          var x = event.clientX-545;
-          var y = yMax-event.clientY;
-          var coords = "X coords: " + x + ", Y coords: " + y;
-          document.getElementById("demo").innerHTML = coords;
+</head>
+<body>
+    <h1>Paint Application</h1>
+    <div class="container">
+        <div class="content">
+            <canvas id="myCanvas" width="1050" height="650"></canvas>
+        </div>
+        <br/>
+        <div class="buttons1">
+            <input type="button" class="shapesel" id="armyst" value="Circle">
+            <input type="button" class="shapesel" id="armyst1" value="Square">
+            <input type="button" class="shapesel" id="armyst2" value="Triangle">
+            <input type="button" class="shapesel" id="armyst3" value="Rectangle">
+            <input type="button" class="shapesel" id="armyst4" value="Line">
+        </div>
+        <br/>
+        <div class="buttons1">
+            <button onclick="change_color(this)" id="cypher" style="background: white;"></button>
+            <button onclick="change_color(this)" id="cypher" style="background: rgb(49, 231, 255);"></button>
+            <button onclick="change_color(this)" id="cypher" style="background: rgb(46, 112, 255);"></button>
+            <button onclick="change_color(this)" id="cypher" style="background: rgb(213, 76, 255);"></button>
+            <button onclick="change_color(this)" id="cypher" style="background: rgb(153, 0, 255);"></button>
+            <button onclick="change_color(this)" id="cypher" style="background: rgb(54, 0, 124);"></button>
+            <button onclick="change_color(this)" id="cypher" style="background: rgb(0, 0, 0);"></button>
+        </div>
+    </div>
+    <br/>
+    <div class="buttons1">
+    <div class="footer">Developed by Aashima Nazreen S</div>
+    </div>
+    <script src="./js/myscript1.js">
+    </script>
     
-          if (shape==1){
-            ctx.beginPath();
-            ctx.arc(x, y, csize, 0, 2 * Math.PI);
-            ctx.fillStyle=tata;
-            ctx.fill();
-          }
-          if (shape==2){
-            ctx.beginPath();
-            ctx.arc(x, y, csize, 0, 2 * Math.PI);
-            ctx.strokeStyle=tata;
-            ctx.stroke();
-          }
-          if (shape==3){
-            ctx.beginPath();
-            ctx.rect(x-(sqsize/2),y-(sqsize/2), sqsize,sqsize);
-            ctx.fillStyle=tata;
-            ctx.fill();
-          }
-          if (shape==4){
-            ctx.beginPath();
-            ctx.rect(x-(sqsize/2),y-(sqsize/2), sqsize,sqsize);
-            ctx.strokeStyle=tata;
-            ctx.stroke();
-          }
-          if (shape==6){
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-            ctx.lineTo(x-(tsize/2),y-(tsize*0.86602));
-            ctx.lineTo(x+(tsize/2),y-(tsize*0.86602));
-            ctx.lineTo(x,y)
-            ctx.strokeStyle=tata;
-            ctx.stroke();
-          }
-          if (shape==5){
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-            ctx.lineTo(x-(tsize/2),y-(tsize*0.86602));
-            ctx.lineTo(x+(tsize/2),y-(tsize*0.86602));
-            ctx.fillStyle=tata;
-            ctx.fill();
-          }    
-        }
-      </script>
-    <center><p id="demo" style="color: white;"></p></center>
-    <p 
-    style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', cursive; 
-    text-align: center;
-    color:rgb(107, 35, 13);
-    font-weight: bold;
-    font-size: larger;"> <u>Developed by Akash.A</u></p>
-  </body>
+</body>
 </html>
+CSS CODE:
+*{
+   box-sizing: border-box; 
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
+body{
+    background-image: url("/static/img/bgimg5.png");
+    background-size: cover;
+}
+
+h1{
+    color: rgb(52, 12, 90);
+    text-align: center;
+    padding-top: 15px;
+}
+
+.container{
+    width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+canvas{
+    background-color: rgb(238, 216, 236);
+    box-shadow: inset 0 0 5px #e5b9ee;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+}
+
+.shapesel{
+    background-color: #cfb3f0;
+    border: 2px solid rgb(161, 146, 168);
+    border-radius: 25px;
+    color: rgb(52, 12, 90);
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.buttons1{
+    text-align: center;
+}
+
+.footer{
+    text-align: center;
+    color: rgb(52, 12, 90);
+    text-align: center;
+    font-size: x-large;
+}
+
+#cypher{
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    padding: 20px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+JAVASCRIPT CODE:
+myscript.js:
+function change_color(element){
+    hyyh=element.style.background;
+}
+function myClickEvent(e){
+    var message;
+    ctx.beginPath();
+    if (shape == 0){
+        ctx.arc(e.offsetX, e.offsetY, 20, 0, 2* Math.PI);
+        ctx.strokeStyle = hyyh;
+        ctx.linewidth = 2;
+    } else if (shape == 1){
+        ctx.rect(e.offsetX, e.offsetY, 35,35);
+        ctx.strokeStyle = hyyh;
+        ctx.linewidth = 2;
+    } else if (shape == 2){
+        ctx.moveTo(e.offsetX, e.offsetY);
+        ctx.lineTo(e.offsetX+(t/2), e.offsetY-(t*0.86602));
+        ctx.lineTo(e.offsetX-(t/2), e.offsetY-(t*0.86602));
+        ctx.lineTo(e.offsetX,e.offsetY);
+        ctx.strokeStyle = hyyh;
+        ctx.linewidth = 2;
+    } else if (shape == 3){
+        ctx.rect(e.offsetX, e.offsetY, 70, 35);
+        ctx.strokeStyle = hyyh;
+        ctx.linewidth = 2;
+    } else if (shape == 4){
+        ctx.moveTo(e.offsetX, e.offsetY);
+        ctx.lineTo(e.offsetX, e.offsetY-(s/2));
+        ctx.strokeStyle = hyyh;
+        ctx.linewidth = 2;
+    }
+
+    ctx.stroke();
+}
+
+function circleclicked() {
+    shape=0;
+}
+
+function squareclicked() {
+    shape=1;
+}
+
+function triangleclicked() {
+    shape=2;
+}
+
+function rectclicked() {
+    shape=3;
+}
+
+function lineclicked() {
+    shape=4;
+}
+mycript1.js:
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+shape=0;
+let hyyh="#000000";
+let t=50;
+let s=120;
+ctx.beginPath();
+ctx.stroke();
+c.addEventListener("click", myClickEvent);
+document
+.getElementById("armyst")
+.addEventListener("click", circleclicked);
+document
+.getElementById("armyst1")
+.addEventListener("click", squareclicked);
+document
+.getElementById("armyst2")
+.addEventListener("click", triangleclicked);
+document
+.getElementById("armyst3")
+.addEventListener("click", rectclicked);
+document
+.getElementById("armyst4")
+.addEventListener("click", lineclicked);
 ## OUTPUT:
 
 ![har](./harshu.png)
