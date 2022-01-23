@@ -232,4 +232,4 @@ document
 
 ## Result:
 
-Thus a website is designed and validated for paint application using HTML5 canvas.
+Thus a website is designed and validated for paint application using HTML5 canvas
